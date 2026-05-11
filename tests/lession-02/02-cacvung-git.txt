@@ -1,0 +1,24 @@
+1. git init
+-> Vùng working directory: có cả 3 file: file1, file2, file3
+2 vùng còn lại rỗng
+
+2. git commit -m "init project"
+-> Vùng working directory: có cả 3 file: file1, file2, file3
+2 vùng còn lại rỗng vì chưa hề chạy lệnh add và commit nào cả
+
+3. git add file1
+-> Vùng working directory: có cả 2 file: file2, file3
+Vùng staging area: có file1 vì vừa chạy lệnh add
+Vùng repository: rỗng vì đã add nhưng chưa commit
+
+4. git commit -m”add file1”
+-> Vùng working directory: có cả 2 file: file2, file3
+Vùng area staging: rỗng vì chưa add thêm file nào khác file 1, file1 biến mất vì đã commit
+Vùng repository: có file1 vì trước đó đã add file1 và vừa chạy lệnh commit
+
+5. git commit -m”add file”
+-> kết quả giống bước 4
+-> Vùng working directory: có cả 2 file: file2, file3
+Vùng area staging: rỗng vì chưa add thêm file nào khác file 1, file1 biến mất vì đã commit
+Vùng repository: có file1 vì trước đó đã add file1 và chạy lệnh commit
+
