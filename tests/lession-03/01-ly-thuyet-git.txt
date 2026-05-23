@@ -1,0 +1,13 @@
+1. git commit --amend (lệnh này e nhớ là hôm trc chưa nhắc đến trong buổi học, e search trên mạng và thực hành thử thôi ạ :D)
+    ○ nhìn lại nội dung commit cũ gần nhất và sửa
+    ○ có thể gộp luôn file mới từ vùng staging lên vùng repository luôn
+
+2. Git commit --amend -m "message"
+    ○ ghi đè luôn message của commit cũ gần nhất
+    ○ Ko gộp thêm file mới được
+
+3. git restore --staged <file>
+-> restore 1 file từ vùng Staging về vùng Working directory
+
+4. git reset HEAD~1
+-> reset 1 file từ vùng Repository về thẳng Working directory

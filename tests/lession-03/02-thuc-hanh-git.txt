@@ -1,0 +1,70 @@
+a.  Tạo 3 file: file1, file2, file3
+Local: file1, file2, file3
+Working directoty: 
+Staging:
+Repository:
+
+b. Chạy lệnh: git init
+Local:
+Working directory: file1, file2, file3
+Staging:
+Repository:
+
+c. git commit -m”init project”
+Local:
+Working directory: file1, file2, file3
+Staging:
+Repository:
+-> ko thay đổi vì chưa chạy lệnh add nào cả
+
+d. Chạy lệnh: git add file1
+Local:
+Working directory:  file2, file3
+Staging: file1
+Repository:
+
+e. Chạy lệnh: git commit -m”add file”
+Local:
+Working directory:  file2, file3
+Staging: 
+Repository: file 1
+-> Chạy lệnh git log lúc này sẽ xuất hiện 1 commit gốc đầu tiên: add file
+
+f. Chạy câu lệnh: git add .
+Local:
+Working directory:  
+Staging: file2, file3
+Repository: file 1
+
+g. Chạy lệnh: git restore --staged file2
+Local:
+Working directory:  file2
+Staging: file3
+Repository: file 1
+
+h. Chạy lệnh: git commit -m”add all files”
+Local:
+Working directory:  file2
+Staging: 
+Repository: file 1, file3
+-> Chạy lệnh git log lúc này sẽ xuất hiện 2 commit:
+    ○ Commit gần nhất: add all files
+    ○ Commit gốc từ bước e: add file
+    
+i. Chạy lệnh: git reset HEAD~1
+Local:
+Working directory:  file2, file3
+Staging: 
+Repository: file 1
+-> Reset các thay đổi của commit gần nhất từ Repository về Working directory (reset bước h)
+
+
+
+
+
+
+
+
+
+
+
