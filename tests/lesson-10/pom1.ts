@@ -5,8 +5,14 @@ export class RegisterPage extends MaterialBasePage {
     //Khai báo thêm các thuộc tính MỚI của riêng class con này
     xpathUserName: string;
     xpathEmail: Locator;
-    xpathGender: Locator;
-    xpathHobbies: Locator;
+
+    xpathFemale: Locator;
+    xpathMale: Locator;
+
+    xpathHobbyTravel: Locator;
+    xpathHobbyReading: Locator;
+    xpathHobbyCooking: Locator;
+
     xpathInterests: Locator;
     xpathCountry: Locator;
     xpathDob: Locator;
@@ -30,8 +36,13 @@ export class RegisterPage extends MaterialBasePage {
         // Khởi tạo các thuộc tính mới của class con
         this.xpathUserName = "//input[@id='username']";
         this.xpathEmail = page.locator("//input[@id='email']");
-        this.xpathGender = page.locator("//input[@type='radio' and @id='female']");
-        this.xpathHobbies = page.locator("//input[@type='checkbox' and @id='traveling']");
+        this.xpathFemale = page.locator("//input[@type='radio' and @id='female']");
+        this.xpathMale = page.locator("//input[@type='radio' and @id='male']");
+
+        this.xpathHobbyTravel = page.locator("//input[@type='checkbox' and @id='traveling']");
+        this.xpathHobbyReading = page.locator("//input[@type='checkbox' and @id='reading']");
+        this.xpathHobbyCooking = page.locator("//input[@type='checkbox' and @id='cooking']");
+
         this.xpathInterests = page.locator("//select[@id='interests']");
         this.xpathCountry = page.locator("//select[@id='country']");
         this.xpathDob = page.locator("//input[@type ='date' and @id='dob']");
@@ -43,7 +54,6 @@ export class RegisterPage extends MaterialBasePage {
         this.xpathResultEmail = page.locator("//*[@id='userTable']/tbody/tr/td[3]");
         this.xpathResultInformation = page.locator("//*[@id='userTable']/tbody/tr/td[4]");
 
-
     }
     //các hàm điền thông tin
     async fillUserName(username: string) {
@@ -52,14 +62,27 @@ export class RegisterPage extends MaterialBasePage {
     async fillEmail(email: string) {
         await this.xpathEmail.fill(email);
     }
-    async checkGender() {
-        await this.xpathGender.click();
+
+    async checkGender(gender: string) {
+        if (gender.toLowerCase() === 'male') {
+            await this.xpathMale.check();
+        } else {
+            await this.xpathFemale.check();
+        }
     }
-    async selectHobbies() {
-        await this.xpathHobbies.click();
+
+    async selectHobbies(hobbies: string) {
+        if (hobbies.toLowerCase() === 'reading') {
+            await this.xpathHobbyReading.click();
+        } else if (hobbies.toLowerCase() === 'traveling') {
+            await this.xpathHobbyTravel.click();
+        } else {
+            await this.xpathHobbyCooking.click();
+        }
     }
-    async selectCountry() {
-        await this.xpathCountry.selectOption({ label: 'Canada' });
+
+    async selectCountry(countryLabel: string) {
+        await this.xpathCountry.selectOption({ label: countryLabel });
     }
     async inputDob(dob: string) {
         await this.xpathDob.fill(dob);

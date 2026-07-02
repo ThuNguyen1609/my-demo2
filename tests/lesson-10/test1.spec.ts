@@ -21,9 +21,9 @@ test.describe('Test 1 - Bài tập Đki User', () => {
             //gọi các hàm fill bên POM để thực hiện đăng kí
             await registerPage.fillUserName('Thu');
             await registerPage.fillEmail('thunt1609@gmail.com');
-            await registerPage.checkGender();
-            await registerPage.selectHobbies();
-            await registerPage.selectCountry();
+            await registerPage.checkGender('male');
+            await registerPage.selectHobbies('Traveling');
+            await registerPage.selectCountry('Canada');
             await registerPage.inputDob('1996-09-16');
             await registerPage.inputBio('Tôi là Tester');
 
@@ -34,7 +34,7 @@ test.describe('Test 1 - Bài tập Đki User', () => {
         await test.step('Kiểm tra kết quả', async () => {
             await expect(registerPage.getResultUsernameLocator()).toHaveText('Thu');
             await expect(registerPage.getResultEmailLocator()).toHaveText('thunt1609@gmail.com');
-            await expect(registerPage.getResultInformationLocator()).toContainText('female');
+            await expect(registerPage.getResultInformationLocator()).toContainText('male');
             await expect(registerPage.getResultInformationLocator()).toContainText('traveling');
             await expect(registerPage.getResultInformationLocator()).toContainText('canada');
             await expect(registerPage.getResultInformationLocator()).toContainText('1996-09-16');

@@ -13,14 +13,9 @@ test.describe('Test2 - Bài tập thêm sản phẩm', async () => {
 
     test('Thêm sản phẩm và kiểm tra số lượng, tổng tiền', async () => {
         await test.step('Thêm sản phẩm', async () => {
-            await productPage.addProduct1();
-            await productPage.addProduct1();
-
-            await productPage.addProduct2();
-            await productPage.addProduct2();
-            await productPage.addProduct2();
-
-            await productPage.addProduct3();
+            await productPage.addToCart(1,2);
+            await productPage.addToCart(2,3);
+            await productPage.addToCart(3,1);
         })
 
         await test.step('Kiểm tra SL và tổng tiền', async () => {
